@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { DocumentComponent } from './document/document.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { StylesModule } from '../styles/styles.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule, StylesModule
   ],
   exports: [
     DocumentComponent, HeaderComponent, FooterComponent
