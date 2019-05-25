@@ -1,0 +1,58 @@
+.item-list {
+  list-style: none;
+  font-size: 12px;
+  margin: 0px;
+}
+
+.json-tree-item {
+  cursor: default;
+}
+
+.json-tree-handler {
+  display: flex;
+  align-items: center;
+}
+
+.json-tree-handler > i {
+  color: #bbb;
+  height: 12px;
+  line-height: 12px;
+}
+
+.empty-space {
+  width: 24px;
+}
+
+.property-name {
+  font-weight: 500;
+  margin: 5px;
+  margin-left:0px;
+}
+
+.object {
+  color: #ff6347;
+}
+
+.number {
+  color: #008000;
+}
+
+.string {
+  color: #0000ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 5px;
+}
+
+.date {
+  color: #ff0000;
+}
+
+.object-details {
+  color: rgba(0, 0, 0, 0.54);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 5px;
+}

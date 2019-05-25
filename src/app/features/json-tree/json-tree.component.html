@@ -1,0 +1,15 @@
+<div class="json-tree-item" *ngFor="let p of jsonProperties">
+  <ul *ngIf="p.parentId==parentId" class="item-list">
+    <li>
+      <span class="json-tree-handler" (click)="toggleChildren(p.uniqueId)">
+        <i class="material-icons" *ngIf="show(p) !== true && hasChildren(p.uniqueId)">arrow_right</i>
+        <i class="material-icons" *ngIf="show(p) === true && hasChildren(p.uniqueId)">arrow_drop_down</i>
+        <i class="material-icons empty-space" *ngIf="!hasChildren(p.uniqueId)"></i>
+        <span class="property-name"> {{p.name + ':'}}</span><span
+          [class]="getValueType(p.value)">{{getText(p.value)}}</span>
+        <span *ngIf="getValueType(p.value) == 'object'" class="object-details">{{jsonStringify(p.value)}}</span></span>
+      <app-json-tree *ngIf="show(p) === true" [rootId]="rootId" [parentId]="p.uniqueId"
+        [jsonProperties]="removeCurrentLevelItems(jsonProperties, parentId)"></app-json-tree>
+    </li>
+  </ul>
+</div>
