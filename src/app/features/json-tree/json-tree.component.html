@@ -1,4 +1,4 @@
-<div class="json-tree-item" *ngFor="let p of jsonProperties">
+<!--<div class="json-tree-item" *ngFor="let p of jsonProperties">
   <ul *ngIf="p.parentId==parentId" class="item-list">
     <li>
       <span class="json-tree-handler" (click)="toggleChildren(p.uniqueId)">
@@ -12,4 +12,24 @@
         [jsonProperties]="removeCurrentLevelItems(jsonProperties, parentId)"></app-json-tree>
     </li>
   </ul>
-</div>
+</div>-->
+
+
+<ng-container *ngFor="let p of jsonProperties">
+  <div class="row" *ngIf="p.parentId==parentId" (click)="toggleChildren(p.uniqueId)">
+    <div [class]="'col-sm-' + (p.level + 1) + ' filler'"></div>
+    <div [class]="'col-sm-' + (11 - p.level) + ' json-tree-handler'">
+      <i class="material-icons" *ngIf="show(p) !== true && hasChildren(p.uniqueId)">arrow_right</i>
+      <i class="material-icons" *ngIf="show(p) === true && hasChildren(p.uniqueId)">arrow_drop_down</i>
+      <i class="material-icons empty-space" *ngIf="!hasChildren(p.uniqueId)"></i>
+      <span class="property-name"> {{p.name + ':'}}</span>
+      <span [class]="getValueType(p.value)">{{getText(p.value)}}</span>
+      <span *ngIf="getValueType(p.value) == 'object'" placement="bottom" [ngbTooltip]="jsonStringify(p.value)"
+        class="object-details">{{jsonStringify(p.value)}}</span>
+    </div>
+  </div>
+
+  <app-json-tree *ngIf="show(p) === true" [rootId]="rootId" [parentId]="p.uniqueId"
+    [jsonProperties]="removeCurrentLevelItems(jsonProperties, parentId)"></app-json-tree>
+
+</ng-container>

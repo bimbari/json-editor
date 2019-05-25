@@ -26,7 +26,7 @@
 .property-name {
   font-weight: 500;
   margin: 5px;
-  margin-left:0px;
+  margin-left: 0px;
 }
 
 .object {
@@ -55,4 +55,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-left: 5px;
+}
+
+.row > div {
+  display: flex;
 }

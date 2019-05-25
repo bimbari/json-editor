@@ -18,7 +18,7 @@
 
   <mat-card class="object-view">
     <mat-toolbar>Object Details</mat-toolbar>
-    <div class="object-view-content">
+    <div class="object-view-content container grid-striped">
       <app-json-tree *ngIf="jsonProperties" [rootId]="rootId" [parentId]="rootId" [jsonProperties]="jsonProperties">
       </app-json-tree>
       <span class="error-message">{{errorMessage}}</span>

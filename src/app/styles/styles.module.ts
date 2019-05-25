@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialUiModule } from './material-ui.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
-    CommonModule, MaterialUiModule
+    CommonModule, MaterialUiModule, NgbModule
   ],
   exports: [
-    MaterialUiModule
+    MaterialUiModule, NgbModule
   ], 
   declarations: []
 })

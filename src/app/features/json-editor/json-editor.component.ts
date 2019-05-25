@@ -51,7 +51,8 @@ export class JsonEditorComponent implements OnInit {
       this.serialize(JSON.parse(this.jsonObject), 0, this.rootId);
       this.errorMessage = "";
     } catch (e) {
-      this.errorMessage = e;
+      if (this.jsonObject != null && this.jsonObject != "")
+        this.errorMessage = e;
     }
   }
 
@@ -67,7 +68,8 @@ export class JsonEditorComponent implements OnInit {
       this.jsonObject = JSON.stringify(JSON.parse(this.jsonObject), undefined, 2);
       setTimeout(() => { this.adjustHeight(); }, 0);
     } catch (e) {
-      this.errorMessage = e;
+      if (this.jsonObject != null && this.jsonObject != "")
+        this.errorMessage = e;
     }
   }
 }
