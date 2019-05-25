@@ -1,8 +1,46 @@
 .editor-container {
   width: 100%;
   display: flex;
+  justify-content: space-evenly;
 }
 
-.editor-container > .raw-json {
-  width: 50%;
+.editor-container > .raw-json,
+.editor-container > .object-view {
+  width: 40%;
+}
+
+.json-value {
+  color: #ccc;
+  width: 100px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.json-textarea {
+  width: 100%;
+  min-height: 200px;
+}
+
+.raw-json-content,
+.object-view-content {
+  margin-top: 20px;
+}
+
+.object-view-content {
+  margin-right: 40px;
+}
+
+.json-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.json-textarea {
+  margin: 5px;
 }

@@ -1,9 +1,28 @@
 <div class="editor-container">
 
   <mat-card class="raw-json">
-    <pre *ngIf="jsonObject">
-      {{jsonObject | json}}
-    </pre>
+    <mat-toolbar class="json-toolbar">JSON Input
+
+      <button mat-button (click)="formatJSON()">
+        <i class="material-icons">
+          format_indent_increase
+        </i> Format</button>
+    </mat-toolbar>
+    <div class="raw-json-content">
+      <mat-form-field class="json-textarea">
+        <textarea matInput placeholder="Enter JSON string" [value]="jsonObject" id="jsonText"
+          (input)="jsonChange($event)" (keyup)="adjustHeight()" spellcheck="false"></textarea>
+      </mat-form-field>
+    </div>
+  </mat-card>
+
+  <mat-card class="object-view">
+    <mat-toolbar>Object Details</mat-toolbar>
+    <div class="object-view-content">
+      <app-json-tree *ngIf="jsonProperties" [rootId]="rootId" [parentId]="rootId" [jsonProperties]="jsonProperties">
+      </app-json-tree>
+      <span class="error-message">{{errorMessage}}</span>
+    </div>
   </mat-card>
 
 </div>
